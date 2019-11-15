@@ -12,15 +12,15 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+// import { mapMutations } from 'vuex'
 export default {
   methods: {
-    search () {},
-    ...mapMutations(['setUser'])
-  },
-  created () {
-    this.setUser({ token: 'hahahaha' })
+    search () {}
+    // ...mapMutations(['setUser'])
   }
+  // created () {
+  //   this.setUser({ token: 'hahahaha' })
+  // }
 }
 </script>
 

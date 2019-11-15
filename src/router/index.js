@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
 const Layout = () => import('@/views/Layout')
 const Article = () => import('@/views/article/Article')
 const Home = () => import('@/views/home/Home')
@@ -73,5 +74,11 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-
+// 导航守卫检查是否有token
+router.beforeEach((to, from, next) => {
+  if (!store.state.user.token && to.path.startsWith('/user')) {
+    return next({ path: '/login', query: { returnUrl: to.path } })
+  }
+  next()
+})
 export default router
